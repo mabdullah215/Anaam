@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "605141161589",
+    "firebase_url": "https://anaam-13da5.firebaseio.com",
+    "project_id": "anaam-13da5",
+    "storage_bucket": "anaam-13da5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605141161589:android:b4c4662598cc2d5121ca3c",
+        "android_client_info": {
+          "package_name": "com.anaam.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605141161589-ujcfd3p0v7k101tkesl1mlai3lgs0g6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOLiH2PM1UrMv5-5uf_E2bS-lyr4FSh-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605141161589-ujcfd3p0v7k101tkesl1mlai3lgs0g6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605141161589:android:6aed08103b9733b321ca3c",
+        "android_client_info": {
+          "package_name": "com.app.anaamapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605141161589-ujcfd3p0v7k101tkesl1mlai3lgs0g6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOLiH2PM1UrMv5-5uf_E2bS-lyr4FSh-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605141161589-ujcfd3p0v7k101tkesl1mlai3lgs0g6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

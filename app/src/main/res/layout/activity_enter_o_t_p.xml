@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.EnterOTPActivity">
+
+    <include layout="@layout/toolbar_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/_20sdp"
+        android:paddingRight="@dimen/_20sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_20sdp"
+        android:id="@+id/input_layout"
+        android:layout_below="@+id/toolbar_layout"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_medium"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="2.3sp"
+            android:text="Enter Phone Number" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="You will get a verification code"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:id="@+id/et_num"
+            android:padding="15dp"
+            android:hint="Ex: +923135189007"
+            android:textSize="12sp"
+            android:inputType="phone"
+            android:background="@drawable/square_corner"
+            android:backgroundTint="#f2f2f2"
+            android:layout_height="60dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_medium"
+            android:textStyle="normal"
+            android:textSize="12dp"
+            android:layout_marginLeft="2dp"
+            android:textColor="#666666"
+            android:layout_marginTop="5dp"
+            android:lineSpacingExtra="1.3sp"
+            tools:text="Follow phone number format “+971-505-5525-96”"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_medium"
+        android:textStyle="normal"
+        android:textSize="15sp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@+id/input_layout"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:textColor="#666666"
+        android:lineSpacingExtra="1.5sp"
+        android:text="By continuing you are agree to\nTerms and conditions of Anaam" />
+
+
+
+    <RelativeLayout
+        android:layout_width="60dp"
+        android:background="@drawable/circular_shape"
+        android:id="@+id/tv_proceed"
+        android:layout_below="@+id/input_layout"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_fwd"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
+            app:tint="@color/white" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
