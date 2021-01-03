@@ -8,18 +8,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.anaamapp.R;
 
-public class EnterOTPActivity extends AppCompatActivity
+public class OtpActivity extends AppCompatActivity
 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enter_o_t_p);
+        setContentView(R.layout.activity_otp);
         EditText etNumber=findViewById(R.id.et_num);
         RelativeLayout tvProceed=findViewById(R.id.tv_proceed);
         ImageView imgBack=findViewById(R.id.img_back);
@@ -40,7 +39,7 @@ public class EnterOTPActivity extends AppCompatActivity
 
                 if(num.isEmpty())
                 {
-                    Toast.makeText(EnterOTPActivity.this, "Please Enter the number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OtpActivity.this, "Please Enter the number", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

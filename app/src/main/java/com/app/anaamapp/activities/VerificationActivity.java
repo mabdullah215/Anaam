@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,15 @@ public class VerificationActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         EditText etText = findViewById(R.id.et_num);
         RelativeLayout tvSubmit =findViewById(R.id.tv_proceed);
+        ImageView imgBack=findViewById(R.id.img_back);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                finish();
+            }
+        });
         tvSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

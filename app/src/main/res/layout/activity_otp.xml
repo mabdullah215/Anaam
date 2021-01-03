@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.EnterOTPActivity">
+    tools:context=".activities.OtpActivity">
 
     <include layout="@layout/toolbar_layout"/>
 
@@ -68,7 +68,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/sf_medium"
         android:textStyle="normal"
         android:textSize="15sp"
         android:layout_marginTop="@dimen/_10sdp"

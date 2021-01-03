@@ -1,40 +1,100 @@
 package com.app.anaamapp.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.app.anaamapp.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
-import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
+import com.app.anaamapp.data.DataSource;
+import com.app.anaamapp.fragments.AlertsFragment;
+import com.app.anaamapp.fragments.DashboardFragment;
+import com.app.anaamapp.fragments.HomeFragment;
+import com.app.anaamapp.fragments.MessageFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthOptions;
-import com.google.firebase.auth.PhoneAuthProvider;
-
-import java.util.concurrent.TimeUnit;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
 {
+    BottomNavigationView bottomNavigationView;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DataSource source=DataSource.getInstance(this);
+        source.getUserInformation();
 
+        mAuth = FirebaseAuth.getInstance();
+        if(mAuth.getCurrentUser()==null)
+        {
+            startActivity(new Intent(getBaseContext(),OnBoardActivity.class));
+            finish();
+        }
+        else
+        {
+            mAuthListener = new FirebaseAuth.AuthStateListener()
+            {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+                {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    if (user==null)
+                    {
+                        startActivity(new Intent(getBaseContext(),OnBoardActivity.class));
+                        finish();
+                    }
+                }
+            };
+
+
+            bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_view);
+            AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_dashboard, R.id.navigation_home,R.id.navigation_messages,R.id.navigation_notifications)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+            bottomNavigationView.setOnNavigationItemSelectedListener
+                    (new BottomNavigationView.OnNavigationItemSelectedListener()
+                    {
+                        @Override
+                        public boolean onNavigationItemSelected(@NonNull MenuItem item)
+                        {
+                            navController.navigate(item.getItemId());
+                            return true;
+                        }
+                    });
+        }
     }
+
+    public void onStart()
+    {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+    public void onStop()
+    {
+        super.onStop();
+        if (mAuthListener != null)
+        { mAuth.removeAuthStateListener(mAuthListener); }
+    }
+
+
 
 }

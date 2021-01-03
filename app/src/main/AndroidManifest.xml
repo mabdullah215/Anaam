@@ -14,12 +14,12 @@
         android:theme="@style/Theme.Anaam"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".activities.ProfileSettings"></activity>
         <activity android:name=".activities.VerificationActivity" />
-        <activity android:name=".activities.EnterOTPActivity" />
+        <activity android:name=".activities.OtpActivity" />
         <activity android:name=".activities.OnBoardActivity" />
         <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.ProfileSettings">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

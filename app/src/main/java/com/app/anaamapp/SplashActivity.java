@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.app.anaamapp.activities.MainActivity;
 import com.app.anaamapp.activities.OnBoardActivity;
 
 import java.util.Timer;
@@ -28,13 +29,12 @@ public class SplashActivity extends AppCompatActivity
             @Override
             public void run()
             {
-                Intent i = new Intent(SplashActivity.this, OnBoardActivity.class);
+                Intent i = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
         };
 
         new Timer().schedule(task, 3000);
-
     }
 }
