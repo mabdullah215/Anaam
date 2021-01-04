@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.app.anaamapp.R;
+import com.app.anaamapp.activities.MainProfileSettings;
 import com.app.anaamapp.activities.ProfileSettings;
 import com.app.anaamapp.adapters.DashboardAdapter;
 import com.app.anaamapp.model.Dashboard;
@@ -43,7 +44,7 @@ public class DashboardFragment extends Fragment
             {
                 if(position==1)
                 {
-                    startActivity(new Intent(getContext(), ProfileSettings.class));
+                    startActivity(new Intent(getContext(), MainProfileSettings.class));
                 }
                 else if(position==4)
                 {
@@ -81,6 +82,6 @@ public class DashboardFragment extends Fragment
         mList.add(new Dashboard("Your Profile","Manage your bidding and selling items",R.drawable.user_avatar,""));
         mList.add(new Dashboard("Messages","Manage your incoming messages",R.drawable.ic_chat,"2"));
         mList.add(new Dashboard("Notifications","Get Alerts for new offers around",R.drawable.ic_notification,"34"));
-        mList.add(new Dashboard("Settings","Manage your app and other settings",R.drawable.ic_settings_icon,""));
+        mList.add(new Dashboard("Logout","Logging out from the application",R.drawable.ic_logout,""));
     }
 }

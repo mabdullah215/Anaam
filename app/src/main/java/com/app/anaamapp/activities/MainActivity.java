@@ -1,27 +1,18 @@
 package com.app.anaamapp.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.app.anaamapp.R;
 import com.app.anaamapp.data.DataSource;
-import com.app.anaamapp.fragments.AlertsFragment;
-import com.app.anaamapp.fragments.DashboardFragment;
-import com.app.anaamapp.fragments.HomeFragment;
-import com.app.anaamapp.fragments.MessageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,7 +29,10 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DataSource source=DataSource.getInstance(this);
-        source.getUserInformation();
+        if(source.getCurrentUser()==null)
+        {
+            source.getUserInformation();
+        }
 
         mAuth = FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser()==null)

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.anaamapp.R;
+import com.app.anaamapp.data.DataSource;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -102,7 +103,9 @@ public class VerificationActivity extends AppCompatActivity {
                         {
                             String number=getIntent().getStringExtra("number");
                             Toast.makeText(VerificationActivity.this, "Verification Successful.!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getBaseContext(),ProfileSettings.class).putExtra("number",number));
+                            DataSource source=DataSource.getInstance(getBaseContext());
+                            source.getCurrentUser().setNumber(number);
+                            startActivity(new Intent(getBaseContext(),MainProfileSettings.class));
                             finish();
 
                         } else

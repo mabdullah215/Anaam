@@ -3,18 +3,19 @@
     package="com.app.anaamapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Anaam"
-        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.ProfileSettings"></activity>
+        <activity android:name=".activities.MainProfileSettings" />
+        <activity android:name=".activities.ProfileSettings" />
         <activity android:name=".activities.VerificationActivity" />
         <activity android:name=".activities.OtpActivity" />
         <activity android:name=".activities.OnBoardActivity" />
